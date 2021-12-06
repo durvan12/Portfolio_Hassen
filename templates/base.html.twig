@@ -2,18 +2,74 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="PortFolio H">
+        <meta name="author" content="Abbassi Hassen">
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
+        <title>PortFolio H - {% block title %}base{% endblock %}</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
     </head>
     <body>
-        {% block body %}{% endblock %}
+
+        <div class="pos-f-t">
+            <div class="collapse" id="navbarToggleExternalContent">
+              <div class="bg-dark p-4">
+                <h5 class="text-white h4">Collapsed content</h5>
+                <span class="text-muted">Toggleable via the navbar brand.</span>
+              </div>
+            </div>
+            <nav class="navbar navbar-dark bg-dark">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </nav>
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="#projets" onclick="closeNavBar()">Projets<span class="sr-only"></span></a>
+                <a class="nav-item nav-link" href="#compétences" onclick="closeNavBar()">Compétences</a>
+                <a class="nav-item nav-link" href="#a propos" onclick="closeNavBar()">À propos</a>
+                <a class="nav-item nav-link" href="#contact" onclick="closeNavBar()">Contact</a>
+            </div>
+          </div>
+
+    {% block body %}{% endblock %}
+
+   <footer class="container-fluid text-light bg-dark">
+            <div class="row text-center p-5">
+                <div class="col-4">
+                    <div class="dropdown-divider"></div>
+                    <p><a href="{{ path('home') }}">Haut de la Page</a></p>
+
+                    <p><a href="#">Contact</a></p>
+                </div>
+                <div class="col-4 my-auto">
+                    <img src="{{ asset('img/relogo.jpg') }}" alt="logo HELP" class="w-100">
+                </div>
+                <div class="col-4">
+                    <h5>COORDONNÉES</h5>
+                    <div class="dropdown-divider"></div>
+                    <p>{{ adresse }}</p>
+                    <p>{{ code_postal }} {{ lieu }}</p>
+                    <p>{{ numero_telephone }}</p>
+                    <p>{{ email }}</p>
+                </div>
+            </div>
+            <div class="row" id="copyright">
+                <div class="col-12 text-center">
+                    <p>{{ copyright }}</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="{{ asset('js/script.js') }}"></script>
+        
+        {% block javascripts %}{% endblock %}
     </body>
+
+
+
 </html>

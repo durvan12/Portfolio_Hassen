@@ -1,5 +1,13 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
+    globals:
+        adresse: '99 rue de la lune'
+        lieu: 'La Lune'
+        email: 'laperte@foret.fr'
+        numero_telephone: '01.23.45.67.89'
+        code_postal: '99999'
+        copyright: 'Copyright © 2021 - Abbassi Hassen'
+    form_themes: ['bootstrap_5_layout.html.twig']
 
 when@test:
     twig:
